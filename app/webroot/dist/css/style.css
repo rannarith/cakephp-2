@@ -1,0 +1,12 @@
+#sidebar {
+    background: red;
+    height: 100%;
+    /* margin-right: 30px; */
+    /* display: none; */
+    float: left;
+    margin-bottom: 100%;
+}
+
+.carousel-item img {
+    height: 500px;
+}
