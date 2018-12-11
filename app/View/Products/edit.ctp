@@ -1,7 +1,7 @@
 <div class="container">
 <h1>EDIT PRODUCTS</h1>
 <hr>
-<?php echo $this->Form->create('Product'); ?>
+<?php echo $this->Form->create('Product',array('enctype'=>'multipart/form-data'));  ?>
     <div class="form-group">
 		<label for="exampleInputEmail1">Product Name</label>
         <?php 

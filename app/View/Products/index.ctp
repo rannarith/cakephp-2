@@ -30,6 +30,7 @@
         <div class="card-body">
           <h5 class="card-title"><?php echo $product['Product']['name'] ?></h5>
           <p class="card-text"><?php echo $product['Product']['description'] ?></p>
+          <p class="card-text"><?php echo $product['Product']['quantity'] ?></p>
           <!-- <a href="#" class="btn btn-primary">View Details</a> -->
           <?php 
           echo $this->Form->submit(
