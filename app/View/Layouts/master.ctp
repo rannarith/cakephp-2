@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shop</title>
+    <title><?php echo $this->fetch('title');?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo $this->webroot;?>/dist/css/style.css" >
 </head>
@@ -57,10 +58,53 @@
 
 
 </div>
-   
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var $dialog = $("#view_dialog").dialog(
+            {
+                autoOpen: false,
+                title: 'View Local Clock',
+                height: 200,
+                width: 300,
+                resizable: true,
+                modal: true,
+                buttons:
+                    {
+                        "Ok": function()
+                        {
+                            var id = $this->request->data['Product']['id'];
+                            $.ajax({
+                                url: 'products/delete/'+ id,
+                                type: 'get',
+                                success:function(resp){
+                                    //reso is msg string returned from controller.
+                                    alert("resp");
+                                }
+                            });
+                            $(this).dialog("close");
+                        }
+                    }
+            });
+        $(".view_dialog").click(function()
+        {
+            $dialog.load($(this).attr('href'), function ()
+            {
+                $dialog.dialog('open');
+            });
+            return false;
+        });
+    });
+
+</script>
+
 </body>
 </html>

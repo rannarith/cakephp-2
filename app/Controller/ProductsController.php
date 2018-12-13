@@ -9,9 +9,8 @@ class ProductsController extends AppController
 
         public function index() {
         $this->layout = 'master';
-        $this->paginate = [
-            'limit'=>'6'
-        ];
+//        $this->layout = 'ajax';
+
 		$productData  = $this->Product->find('all');
         $this->set('products', $productData);
         // pr($productData);exit;
@@ -86,6 +85,25 @@ class ProductsController extends AppController
                 $this->request->data = $product;
             }
         }
+
+    public function delete($id) {
+            $this->layout = 'master';
+        if ($this->request->is('get')) {
+            throw new MethodNotAllowedException();
+        }
+
+        if ($this->Product->delete($id)) {
+            $this->Flash->success(
+                __('The post with id: %s has been deleted.', h($id))
+            );
+        } else {
+            $this->Flash->error(
+                __('The post with id: %s could not be deleted.', h($id))
+            );
+        }
+
+        return $this->redirect(array('action' => 'index'));
+    }
 
     }
 

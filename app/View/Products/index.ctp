@@ -1,3 +1,7 @@
+
+    <?php $this->assign('title', 'Home page') ?>
+
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -47,6 +51,17 @@
               $product['Product']['id']),
                 array('class'=>'nav-link'));
           ?>
+            <?php
+            echo $this->Form->postLink(
+                'Delete',
+                array( 'controller'=>'products',
+                        'action' => 'delete', $product['Product']['id']),
+                array('confirm' => 'Are you sure?')
+            );
+            ?>
+            <div id="view_dialog"></div>
+            <?php echo $this->Html->link('DeleteTest', array('action' =>'delete', $product['Product']['id']), array('class' => 'view_dialog')); ?>
+
         </div>
         
       </div>
@@ -56,6 +71,3 @@
 
   </div>
 </div>
-
-
-

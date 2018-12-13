@@ -33,7 +33,8 @@
 	Router::connect('/add', array('controller' => 'products', 'action' => 'add'));
 	// Edit form
 	Router::connect('/edit', array('controller' => 'products', 'action' => 'edit'));
-
+    // Delete
+    Router::connect('/delete', array('controller'=>'products', 'action'=>'delete'));
 
 
 /**
