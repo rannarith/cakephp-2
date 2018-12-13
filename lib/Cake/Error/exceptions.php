@@ -434,7 +434,7 @@ class MissingShellException extends CakeException {
  */
 class MissingDatasourceConfigException extends CakeException {
 
-	protected $_messageTemplate = 'The datasource configuration "%s" was not found in database.php';
+	protected $_messageTemplate = 'The datasource configuration "%s" was not found in database.php.default';
 
 }
 

@@ -587,7 +587,7 @@ class ExceptionRendererTest extends CakeTestCase {
 				new MissingDatasourceConfigException(array('config' => 'default')),
 				array(
 					'/<h2>Missing Datasource Configuration<\/h2>/',
-					'/The datasource configuration <em>default<\/em> was not found in database.php/'
+					'/The datasource configuration <em>default<\/em> was not found in database.php.default/'
 				),
 				500
 			),

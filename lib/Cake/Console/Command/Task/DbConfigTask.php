@@ -1,6 +1,6 @@
 <?php
 /**
- * The DbConfig Task handles creating and updating the database.php
+ * The DbConfig Task handles creating and updating the database.php.default
  *
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -244,7 +244,7 @@ class DbConfigTask extends AppShell {
 	}
 
 /**
- * Assembles and writes database.php
+ * Assembles and writes database.php.default
  *
  * @param array $configs Configuration settings to use
  * @return bool Success
@@ -255,7 +255,7 @@ class DbConfigTask extends AppShell {
 			return false;
 		}
 
-		$filename = $this->path . 'database.php';
+		$filename = $this->path . 'database.php.default';
 		$oldConfigs = array();
 
 		if (file_exists($filename)) {
@@ -342,7 +342,7 @@ class DbConfigTask extends AppShell {
 		}
 
 		$out .= "}\n";
-		$filename = $this->path . 'database.php';
+		$filename = $this->path . 'database.php.default';
 		return $this->createFile($filename, $out);
 	}
 

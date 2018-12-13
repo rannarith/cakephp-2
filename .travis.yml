@@ -146,7 +146,7 @@ before_script:
         \$this->{\$source} = \$config;
       }
     }
-    }" > app/Config/database.php
+    }" > app/Config/database.php.default
 
 script:
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core AllTests --stderr; fi"

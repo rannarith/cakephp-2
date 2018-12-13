@@ -47,7 +47,7 @@ class Model extends CakeObject implements CakeEventListener {
 /**
  * The name of the DataSource connection that this Model uses
  *
- * The value must be an attribute name that you defined in `app/Config/database.php`
+ * The value must be an attribute name that you defined in `app/Config/database.php.default`
  * or created using `ConnectionManager::create()`.
  *
  * @var string
@@ -3632,7 +3632,7 @@ class Model extends CakeObject implements CakeEventListener {
 /**
  * Sets the DataSource to which this model is bound.
  *
- * @param string $dataSource The name of the DataSource, as defined in app/Config/database.php
+ * @param string $dataSource The name of the DataSource, as defined in app/Config/database.php.default
  * @return void
  * @throws MissingConnectionException
  */
