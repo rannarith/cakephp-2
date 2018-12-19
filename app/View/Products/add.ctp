@@ -1,7 +1,8 @@
 <div class="container">
 <h1>ADD PRODUCTS</h1>
 <hr>
-<?php echo $this->Form->create('Product',array('enctype'=>'multipart/form-data')); ?>
+<?php //echo// $this->Form->create('Product',array('enctype'=>'multipart/form-data')); ?>
+    <form name="addForm" id="addForm" method="post" enctype="multipart/form-data">
     <div class="form-group">
 		<label for="exampleInputEmail1">Product Name</label>
         <?php 
@@ -39,15 +40,16 @@
 		<label for="exampleInputEmail1">Image</label>
         <?php 
         echo $this->Form->input('image',array('label'=> false, 'div'=> false,
-                                            'type'=>'file' ,
+                                            'type'=>'file','name'=>'image','id'=>'txtImg',
                                             'class'=>'form-control'));
         ?>
     </div>
-    <?php 
-	echo $this->Form->submit(
-		'Save Post',
-		array('class' => 'btn btn-primary')
-	);
+<!--    --><?php // echo $this->Form->input('userId',array('type'=>'hidden', 'id'=>'userId','name'=>'userId')) ; ?>
+    <?php
+//	echo $this->Form->submit(
+//		'Save Post',
+//		array('class' => 'btn btn-primary')
+//	);
 	echo $this->Form->end();
 ?>
 </div>

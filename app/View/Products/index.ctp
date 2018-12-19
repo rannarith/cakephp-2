@@ -25,49 +25,45 @@
 </div>
 
 <div class="container">
-  <div class="row mt-4 ">
+  <div class="row mt-4 record">
 
   <?php foreach($products as $product) : ?>
-    <div class="col-md-4 lg-4 sm-6">
+    <div class="col-md-4 lg-4 sm-6" id="product-<?php echo $product['Product']['id']; ?>">
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="<?php echo $this->webroot;?>/public/img/<?php echo $product['Product']['image'] ?>" alt="Card image cap">
+        <img class="card-img-top" src="<?php echo $this->webroot;?>public/img/<?php echo $product['Product']['image'] ?>" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><?php echo $product['Product']['name'] ?></h5>
           <p class="card-text"><?php echo $product['Product']['description'] ?></p>
           <p class="card-text"><?php echo $product['Product']['quantity'] ?></p>
           <!-- <a href="#" class="btn btn-primary">View Details</a> -->
-          <?php 
-          echo $this->Form->submit(
-            'Detail',
-            array('class' => 'btn btn-primary',
-                  'controller'=>'products',
-                  'action'=>'edit',
-                  $product['Product']['id']));
-          ?>
-          <?php 
-            echo $this->html->link(
-              'EDIT', array('controller'=>'products',
-                'action'=> 'edit',
-              $product['Product']['id']),
-                array('class'=>'nav-link'));
-          ?>
-            <?php
-            echo $this->Form->postLink(
-                'Delete',
-                array( 'controller'=>'products',
-                        'action' => 'delete', $product['Product']['id']),
-                array('confirm' => 'Are you sure?')
-            );
-            ?>
-            <div id="view_dialog"></div>
-            <?php echo $this->Html->link('DeleteTest', array('action' =>'delete', $product['Product']['id']), array('class' => 'view_dialog')); ?>
+            <div class="d-inline">
+                <?php
+                echo $this->html->link(
+                    'Detail',
+                    array('controller'=>'products',
+                        'action'=>'detail',
+                        $product['Product']['id']));
+                ?>
+                <?php
+                echo $this->html->link(
+                    'EDIT', array('controller'=>'products',
+                    'action'=> 'edit',
+                    $product['Product']['id']),
+                    array('class'=>'nav-link'));
+                ?>
+
+                <?php echo $this->Html->link('Delete', array('action' =>'delete', $product['Product']['id']),
+                    array('class' => ' btn btn-danger confirmdelete', 'data-id'=> $product['Product']['id']));
+                ?>
+            </div>
+
 
         </div>
         
       </div>
      
     </div>
-  <?php endforeach ?>;
-
+  <?php endforeach ?>
+<!--      <div id="view_dialog"></div>-->
   </div>
 </div>

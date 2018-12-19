@@ -35,7 +35,8 @@
 	Router::connect('/edit', array('controller' => 'products', 'action' => 'edit'));
     // Delete
     Router::connect('/delete', array('controller'=>'products', 'action'=>'delete'));
-
+    // Detail
+    Router::connect('/detail', array('controller'=>'products', 'action'=>'detail'));
 
 /**
  * ...and connect the rest of 'Pages' controller's URLs.

@@ -47,7 +47,10 @@
         ?>
     </div>
     <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
-    <?php 
+    <?php echo $this->Form->input('user_id', array('type' => 'hidden')); ?>
+
+    <?php
+
 	echo $this->Form->submit(
 		'Update Post',
 		array('class' => 'btn btn-primary')
