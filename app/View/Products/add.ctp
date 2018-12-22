@@ -44,7 +44,6 @@
                                             'class'=>'form-control'));
         ?>
     </div>
-<!--    --><?php // echo $this->Form->input('userId',array('type'=>'hidden', 'id'=>'userId','name'=>'userId')) ; ?>
     <?php
 //	echo $this->Form->submit(
 //		'Save Post',

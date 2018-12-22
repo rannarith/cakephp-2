@@ -21,7 +21,7 @@ class ProductsController extends AppController
         $this->layout = 'ajax';
         if ($this->request->is('post') && !empty($this->request->data)) {
             // Get id user from table users
-            $this->request->data['user_id'] = $this->Auth->user('id');
+            $this->request->data['Product']['user_id'] = $this->Auth->user('id');
             // For file upload
             if (isset($_FILES['image']['name'])) {
                 $file_name = $_FILES['image']['name'];

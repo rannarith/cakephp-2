@@ -151,6 +151,7 @@
                         $.each(f_data, function (key, input,) {
                             form_data.append(input.name, input.value);
                         });
+                        console.log(f_data);
                         $.ajax({
                             url: '<?php echo $this->webroot; ?>products/add',
                             method: 'post',

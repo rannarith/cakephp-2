@@ -2,7 +2,7 @@
 /**
  * Datasource connection manager
  *
- * Provides an interface for loading and enumerating connections defined in app/Config/database.php.default
+ * Provides an interface for loading and enumerating connections defined in app/Config/database.php
  *
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -24,7 +24,7 @@ App::uses('DataSource', 'Model/Datasource');
  * Manages loaded instances of DataSource objects
  *
  * Provides an interface for loading and enumerating connections defined in
- * app/Config/database.php.default
+ * app/Config/database.php
  *
  * @package       Cake.Model
  */
@@ -64,7 +64,7 @@ class ConnectionManager {
  * @return void
  */
 	protected static function _init() {
-		include_once CONFIG . 'database.php.default';
+		include_once CONFIG . 'database.php';
 		if (class_exists('DATABASE_CONFIG')) {
 			static::$config = new DATABASE_CONFIG();
 		}
@@ -74,7 +74,7 @@ class ConnectionManager {
 /**
  * Gets a reference to a DataSource object
  *
- * @param string $name The name of the DataSource, as defined in app/Config/database.php.default
+ * @param string $name The name of the DataSource, as defined in app/Config/database.php
  * @return DataSource Instance
  * @throws MissingDatasourceException
  */
@@ -144,7 +144,7 @@ class ConnectionManager {
 /**
  * Loads the DataSource class for the given connection name
  *
- * @param string|array $connName A string name of the connection, as defined in app/Config/database.php.default,
+ * @param string|array $connName A string name of the connection, as defined in app/Config/database.php,
  *    or an array containing the filename (without extension) and class name of the object,
  *    to be found in app/Model/Datasource/ or lib/Cake/Model/Datasource/.
  * @return bool True on success, null on failure or false if the class is already loaded
